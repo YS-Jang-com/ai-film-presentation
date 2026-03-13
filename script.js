@@ -695,9 +695,8 @@ if (document.readyState === "loading") {
   setTimeout(() => app.render(), 0);
 }
 
-// Color scheme buttons + Page content
-const colorButtons = document.querySelectorAll(".color-btn");
 
+// ── Page Data (14 pages from ai-film-preproduction.md) ──
 const pageData = [
   {
     title: "AI 기반 콘텐츠 제작 혁신 제안",
@@ -709,10 +708,7 @@ const pageData = [
     title: "콘텐츠 산업의 변화",
     body: `<p>콘텐츠 제작 방식이 빠르게 변화하고 있습니다</p>
 <ul>
-  <li>AI 이미지 생성</li>
-  <li>AI 영상 생성</li>
-  <li>AI 음성 생성</li>
-  <li>AI 캐릭터 디자인</li>
+  <li>AI 이미지 생성</li><li>AI 영상 생성</li><li>AI 음성 생성</li><li>AI 캐릭터 디자인</li>
 </ul>
 <p>AI는 콘텐츠 제작의 새로운 도구가 되고 있습니다</p>`
   },
@@ -725,10 +721,8 @@ const pageData = [
   {
     title: "Pre-production의 문제",
     body: `<ul>
-  <li>캐릭터 디자인 제작 시간</li>
-  <li>스토리보드 제작 비용</li>
-  <li>컨셉 영상 제작 비용</li>
-  <li>아이디어 테스트 어려움</li>
+  <li>캐릭터 디자인 제작 시간</li><li>스토리보드 제작 비용</li>
+  <li>컨셉 영상 제작 비용</li><li>아이디어 테스트 어려움</li>
 </ul>
 <p>캐릭터 디자인 → 수주 &nbsp;|&nbsp; 스토리보드 → 수주</p>`
   },
@@ -742,10 +736,8 @@ const pageData = [
     title: "AI Character Generation",
     body: `<p>AI 기반 캐릭터 생성 예시</p>
 <ul>
-  <li>Zombie Deer</li>
-  <li>Zombie Pig Farmer</li>
-  <li>Burned Zombie Cow</li>
-  <li>Zombie Rat</li>
+  <li>Zombie Deer</li><li>Zombie Pig Farmer</li>
+  <li>Burned Zombie Cow</li><li>Zombie Rat</li>
 </ul>
 <p>AI를 이용한 캐릭터 디자인 자동 생성</p>`
   },
@@ -759,9 +751,7 @@ const pageData = [
     title: "AI Video Prototype",
     body: `<p>AI 영상 생성 기술 활용</p>
 <ul>
-  <li>Concept trailer</li>
-  <li>Scene prototype</li>
-  <li>Visual experiment</li>
+  <li>Concept trailer</li><li>Scene prototype</li><li>Visual experiment</li>
 </ul>
 <p>Pre-visualization 속도 증가</p>`
   },
@@ -769,29 +759,23 @@ const pageData = [
     title: "실제 제작 실험",
     body: `<p>AI 기반 캐릭터 디자인 예시</p>
 <ul>
-  <li>Zombie Animal Characters</li>
-  <li>Horror Concept Art</li>
-  <li>AI Generated Character Sheets</li>
+  <li>Zombie Animal Characters</li><li>Horror Concept Art</li><li>AI Generated Character Sheets</li>
 </ul>`
   },
   {
     title: "제작사 활용 가능 영역",
     body: `<p>AI는 제작사를 대체하는 것이 아니라 제작을 보조하는 도구입니다</p>
 <ul>
-  <li>영화 Pre-production</li>
-  <li>웹툰 / 웹소설 IP 개발</li>
-  <li>캐릭터 디자인</li>
-  <li>컨셉 영상 제작</li>
+  <li>영화 Pre-production</li><li>웹툰 / 웹소설 IP 개발</li>
+  <li>캐릭터 디자인</li><li>컨셉 영상 제작</li>
 </ul>`
   },
   {
     title: "내부 AI 제작 환경 구축",
     body: `<p>제작사 내부 AI 환경 구축 구성</p>
 <ul>
-  <li>AI 이미지 생성</li>
-  <li>AI 캐릭터 디자인</li>
-  <li>AI 스토리보드 생성</li>
-  <li>AI 영상 프로토타입</li>
+  <li>AI 이미지 생성</li><li>AI 캐릭터 디자인</li>
+  <li>AI 스토리보드 생성</li><li>AI 영상 프로토타입</li>
 </ul>
 <p>빠른 실험 가능</p>`
   },
@@ -799,20 +783,16 @@ const pageData = [
     title: "기술 역량",
     body: `<p>현재 구축 및 실험 중</p>
 <ul>
-  <li>Linux 기반 AI 환경</li>
-  <li>GPU 기반 생성 시스템</li>
-  <li>LLM 기반 자동화</li>
-  <li>AI 이미지 / 영상 생성</li>
+  <li>Linux 기반 AI 환경</li><li>GPU 기반 생성 시스템</li>
+  <li>LLM 기반 자동화</li><li>AI 이미지 / 영상 생성</li>
 </ul>`
   },
   {
     title: "향후 연구 방향",
     body: `<p>AI 기반 콘텐츠 제작 파이프라인</p>
 <ul>
-  <li>AI 캐릭터 IP 제작</li>
-  <li>AI 영상 제작</li>
-  <li>AI 콘텐츠 제작 자동화</li>
-  <li>글로벌 콘텐츠 제작</li>
+  <li>AI 캐릭터 IP 제작</li><li>AI 영상 제작</li>
+  <li>AI 콘텐츠 제작 자동화</li><li>글로벌 콘텐츠 제작</li>
 </ul>`
   },
   {
@@ -827,53 +807,50 @@ const pageData = [
   }
 ];
 
-function showPage(pageIndex) {
-  const data = pageData[pageIndex];
+// ── Show page content ──
+function showPage(index) {
+  const data = pageData[index];
   if (!data) return;
   const box = document.getElementById("pageContentBox");
-  box.innerHTML = `<h1>${data.title}</h1>${data.body}<div class="page-counter">${pageIndex + 1} / ${pageData.length}</div>`;
-  // Re-trigger animation
+  box.innerHTML = `<h1>${data.title}</h1>${data.body}<div class="page-counter">${index + 1} / ${pageData.length}</div>`;
   box.style.animation = "none";
-  box.offsetHeight;
+  box.offsetHeight; // reflow
   box.style.animation = "";
 }
+
+// ── Button click handlers ──
+const colorButtons = document.querySelectorAll(".color-btn");
 
 colorButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     const scheme = parseInt(btn.dataset.scheme);
-    const page = parseInt(btn.dataset.page) - 1;
+    const pageIndex = parseInt(btn.dataset.page) - 1;
 
     app.setColorScheme(scheme);
 
     colorButtons.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
 
-    showPage(page);
+    showPage(pageIndex);
   });
 });
 
-// Show page 1 on load
+// Show Page 1 on load
 showPage(0);
 
-// Custom cursor
+// ── Custom cursor ──
 const cursor = document.getElementById("customCursor");
-let mouseX = 0;
-let mouseY = 0;
-let cursorX = 0;
-let cursorY = 0;
+let mouseX = 0, mouseY = 0;
+let isCursorAnimating = false;
 
 document.addEventListener("mousemove", (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
 });
 
-let isCursorAnimating = false;
 function animateCursor() {
-  if (!isCursorAnimating) return;
-  cursorX = mouseX;
-  cursorY = mouseY;
-  cursor.style.left = cursorX + "px";
-  cursor.style.top = cursorY + "px";
+  cursor.style.left = mouseX + "px";
+  cursor.style.top = mouseY + "px";
   requestAnimationFrame(animateCursor);
 }
 
@@ -882,47 +859,13 @@ document.addEventListener("mousemove", () => {
     isCursorAnimating = true;
     animateCursor();
   }
-}, { once: false });
+}, { once: true });
 
 const footerLink = document.querySelector(".footer a");
-footerLink.addEventListener("mouseenter", () => {
-  cursor.style.width = "50px";
-  cursor.style.height = "50px";
-  cursor.style.borderWidth = "3px";
-});
-footerLink.addEventListener("mouseleave", () => {
-  cursor.style.width = "40px";
-  cursor.style.height = "40px";
-  cursor.style.borderWidth = "2px";
-});
+footerLink.addEventListener("mouseenter", () => { cursor.style.width = "52px"; cursor.style.height = "52px"; });
+footerLink.addEventListener("mouseleave", () => { cursor.style.width = "40px"; cursor.style.height = "40px"; });
 
 colorButtons.forEach((btn) => {
-  btn.addEventListener("mouseenter", () => {
-    cursor.style.width = "50px";
-    cursor.style.height = "50px";
-    cursor.style.borderWidth = "3px";
-  });
-  btn.addEventListener("mouseleave", () => {
-    cursor.style.width = "40px";
-    cursor.style.height = "40px";
-    cursor.style.borderWidth = "2px";
-  });
-});
-
-let lastMouseMoveTime = 0;
-let pulseFrame = null;
-function checkPulse() {
-  if (Date.now() - lastMouseMoveTime > 100) {
-    cursor.style.borderWidth = "2px";
-    pulseFrame = null;
-  } else {
-    pulseFrame = requestAnimationFrame(checkPulse);
-  }
-}
-document.addEventListener("mousemove", () => {
-  lastMouseMoveTime = Date.now();
-  cursor.style.borderWidth = "2.5px";
-  if (!pulseFrame) {
-    pulseFrame = requestAnimationFrame(checkPulse);
-  }
+  btn.addEventListener("mouseenter", () => { cursor.style.width = "52px"; cursor.style.height = "52px"; });
+  btn.addEventListener("mouseleave", () => { cursor.style.width = "40px"; cursor.style.height = "40px"; });
 });

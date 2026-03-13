@@ -1,28 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>Interactive Liquid Gradient using Three.js</title>
-    <link rel="stylesheet" href="./style.css">
-
-  </head>
-    
-  <body>
-  <head>
+<head>
   <meta charset="UTF-8">
-  <title>Interactive Liquid Gradient</title>
+  <title>AI Film Preproduction</title>
+  <link rel="stylesheet" href="./style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <!-- Heading: Syne (Modern, Geometric) -->
-  <h1 class="heading option1">AI Film Preproduction</h1>
 
-  <!-- Page Navigation Controls -->
+  <!-- Page Navigation Buttons -->
   <div class="color-controls">
     <button class="color-btn active" data-scheme="1" data-page="1">Page 1</button>
     <button class="color-btn" data-scheme="2" data-page="2">Page 2</button>
@@ -41,21 +29,21 @@
   </div>
 
   <!-- Page Content Overlay -->
-  <div class="page-content-overlay" id="pageContentOverlay">
+  <div class="page-content-overlay">
     <div class="page-content-box" id="pageContentBox"></div>
   </div>
 
-
-
+  <!-- Footer -->
   <footer class="footer">
     <a href="#" target="_blank" rel="noopener noreferrer">YS JANG</a>
   </footer>
+
+  <!-- Custom cursor -->
   <div class="custom-cursor" id="customCursor"></div>
+
+  <!-- Three.js + App -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="./script.js"></script>
 
 </body>
-    <script src='https://unpkg.com/three@0.160.0/build/three.min.js'></script><script  src="./script.js"></script>
-
-  </body>
-  
 </html>
