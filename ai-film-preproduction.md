@@ -1,0 +1,211 @@
+---
+marp: true
+---
+
+# AI 기반 콘텐츠 제작 혁신 제안
+### AI Film Pre-production Automation
+
+AI Character Generation  
+AI Storyboard Generation  
+AI Video Prototype
+
+장윤석
+
+---
+
+# 콘텐츠 산업의 변화
+
+콘텐츠 제작 방식이 빠르게 변화하고 있습니다
+
+최근 변화
+
+- AI 이미지 생성
+- AI 영상 생성
+- AI 음성 생성
+- AI 캐릭터 디자인
+
+AI는 콘텐츠 제작의 새로운 도구가 되고 있습니다
+
+---
+
+# 영화 제작 Pipeline
+
+전통적인 제작 과정
+
+Idea  
+↓  
+Script  
+↓  
+Character Design  
+↓  
+Storyboard  
+↓  
+Pre-visualization  
+↓  
+Production
+
+특히 **Pre-production 단계가 오래 걸립니다**
+
+---
+
+# Pre-production의 문제
+
+대표적인 문제
+
+- 캐릭터 디자인 제작 시간
+- 스토리보드 제작 비용
+- 컨셉 영상 제작 비용
+- 아이디어 테스트 어려움
+
+예
+
+캐릭터 디자인 → 수주  
+스토리보드 → 수주
+
+---
+
+# AI 기반 해결 방법
+
+AI를 활용하면
+
+Script  
+↓  
+Character Generation  
+↓  
+Storyboard Generation  
+↓  
+Video Prototype
+
+가능
+
+---
+
+# AI Character Generation
+
+AI 기반 캐릭터 생성
+
+예
+
+- Zombie Deer
+- Zombie Pig Farmer
+- Burned Zombie Cow
+- Zombie Rat
+
+AI를 이용한 캐릭터 디자인 자동 생성
+
+---
+
+# AI Storyboard Generation
+
+시나리오 기반 자동 스토리보드 생성
+
+Script  
+↓  
+Scene 분석  
+↓  
+Storyboard 생성
+
+감독 아이디어를 빠르게 시각화
+
+---
+
+# AI Video Prototype
+
+AI 영상 생성 기술
+
+가능한 활용
+
+- Concept trailer
+- Scene prototype
+- Visual experiment
+
+Pre-visualization 속도 증가
+
+---
+
+# 실제 제작 실험
+
+AI 기반 캐릭터 디자인 예시
+
+- Zombie Animal Characters
+- Horror Concept Art
+- AI Generated Character Sheets
+
+---
+
+# 제작사 활용 가능 영역
+
+AI는 제작사를 대체하는 것이 아니라  
+제작을 보조하는 도구입니다
+
+활용 영역
+
+- 영화 Pre-production
+- 웹툰 / 웹소설 IP 개발
+- 캐릭터 디자인
+- 컨셉 영상 제작
+
+---
+
+# 내부 AI 제작 환경 구축
+
+제작사 내부 AI 환경 구축 가능
+
+구성
+
+- AI 이미지 생성
+- AI 캐릭터 디자인
+- AI 스토리보드 생성
+- AI 영상 프로토타입
+
+효과
+
+빠른 실험 가능
+
+---
+
+# 기술 역량
+
+현재 구축 및 실험 중
+
+- Linux 기반 AI 환경
+- GPU 기반 생성 시스템
+- LLM 기반 자동화
+- AI 이미지 / 영상 생성
+
+---
+
+# 향후 연구 방향
+
+AI 기반 콘텐츠 제작 파이프라인
+
+가능한 방향
+
+- AI 캐릭터 IP 제작
+- AI 영상 제작
+- AI 콘텐츠 제작 자동화
+- 글로벌 콘텐츠 제작
+
+---
+
+# 기대 효과
+
+AI 활용 시
+
+- Pre-production 시간 단축
+- 아이디어 테스트 가능
+- 콘텐츠 제작 비용 감소
+
+---
+
+# Conclusion
+
+AI는 영화 제작을 대체하지 않습니다
+
+AI는 **콘텐츠 제작 속도를 높이는 도구**
+
+가능한 역할
+
+- AI 기반 콘텐츠 제작 연구
+- AI Pre-production 자동화
+- AI 영상 제작 실험
