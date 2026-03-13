@@ -56,8 +56,11 @@ body {
   right: 2rem;
   z-index: 10;
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   pointer-events: auto;
+  max-width: 480px;
+  justify-content: flex-end;
 }
 .color-btn {
   min-width: 48px;
@@ -351,4 +354,102 @@ body {
 }
 body {
   cursor: none;
+}
+/* Page Content Overlay */
+.page-content-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+  width: 90%;
+  max-width: 700px;
+}
+
+.page-content-box {
+  background: rgba(10, 14, 39, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 2.5rem 3rem;
+  color: white;
+  font-family: "Syne", sans-serif;
+  animation: fadeInPage 0.4s ease;
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page-content-box h1 {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 700;
+  margin: 0 0 1.2rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.page-content-box h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  margin: 0 0 1rem;
+}
+
+.page-content-box p {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.85);
+  margin: 0 0 0.6rem;
+}
+
+.page-content-box ul {
+  margin: 0.5rem 0;
+  padding-left: 1.4rem;
+}
+
+.page-content-box li {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.85);
+}
+
+.page-content-box .flow-arrow {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 2;
+  margin: 0.5rem 0;
+}
+
+.page-content-box .tag-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.page-content-box .author-line {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  font-family: "Inter", sans-serif;
+}
+
+.page-counter {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.1em;
+  text-align: right;
+  margin-top: 1.2rem;
 }

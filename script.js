@@ -695,148 +695,165 @@ if (document.readyState === "loading") {
   setTimeout(() => app.render(), 0);
 }
 
-// Color scheme buttons
+// Color scheme buttons + Page content
 const colorButtons = document.querySelectorAll(".color-btn");
+
+const pageData = [
+  {
+    title: "AI 기반 콘텐츠 제작 혁신 제안",
+    body: `<div class="tag-badge">AI Film Pre-production Automation</div>
+<p>AI Character Generation &nbsp;·&nbsp; AI Storyboard Generation &nbsp;·&nbsp; AI Video Prototype</p>
+<p class="author-line">장윤석</p>`
+  },
+  {
+    title: "콘텐츠 산업의 변화",
+    body: `<p>콘텐츠 제작 방식이 빠르게 변화하고 있습니다</p>
+<ul>
+  <li>AI 이미지 생성</li>
+  <li>AI 영상 생성</li>
+  <li>AI 음성 생성</li>
+  <li>AI 캐릭터 디자인</li>
+</ul>
+<p>AI는 콘텐츠 제작의 새로운 도구가 되고 있습니다</p>`
+  },
+  {
+    title: "영화 제작 Pipeline",
+    body: `<p>전통적인 제작 과정</p>
+<div class="flow-arrow">Idea → Script → Character Design → Storyboard → Pre-visualization → Production</div>
+<p>특히 <strong>Pre-production 단계가 오래 걸립니다</strong></p>`
+  },
+  {
+    title: "Pre-production의 문제",
+    body: `<ul>
+  <li>캐릭터 디자인 제작 시간</li>
+  <li>스토리보드 제작 비용</li>
+  <li>컨셉 영상 제작 비용</li>
+  <li>아이디어 테스트 어려움</li>
+</ul>
+<p>캐릭터 디자인 → 수주 &nbsp;|&nbsp; 스토리보드 → 수주</p>`
+  },
+  {
+    title: "AI 기반 해결 방법",
+    body: `<p>AI를 활용하면</p>
+<div class="flow-arrow">Script → Character Generation → Storyboard Generation → Video Prototype</div>
+<p>빠른 프로토타입이 가능합니다</p>`
+  },
+  {
+    title: "AI Character Generation",
+    body: `<p>AI 기반 캐릭터 생성 예시</p>
+<ul>
+  <li>Zombie Deer</li>
+  <li>Zombie Pig Farmer</li>
+  <li>Burned Zombie Cow</li>
+  <li>Zombie Rat</li>
+</ul>
+<p>AI를 이용한 캐릭터 디자인 자동 생성</p>`
+  },
+  {
+    title: "AI Storyboard Generation",
+    body: `<p>시나리오 기반 자동 스토리보드 생성</p>
+<div class="flow-arrow">Script → Scene 분석 → Storyboard 생성</div>
+<p>감독 아이디어를 빠르게 시각화</p>`
+  },
+  {
+    title: "AI Video Prototype",
+    body: `<p>AI 영상 생성 기술 활용</p>
+<ul>
+  <li>Concept trailer</li>
+  <li>Scene prototype</li>
+  <li>Visual experiment</li>
+</ul>
+<p>Pre-visualization 속도 증가</p>`
+  },
+  {
+    title: "실제 제작 실험",
+    body: `<p>AI 기반 캐릭터 디자인 예시</p>
+<ul>
+  <li>Zombie Animal Characters</li>
+  <li>Horror Concept Art</li>
+  <li>AI Generated Character Sheets</li>
+</ul>`
+  },
+  {
+    title: "제작사 활용 가능 영역",
+    body: `<p>AI는 제작사를 대체하는 것이 아니라 제작을 보조하는 도구입니다</p>
+<ul>
+  <li>영화 Pre-production</li>
+  <li>웹툰 / 웹소설 IP 개발</li>
+  <li>캐릭터 디자인</li>
+  <li>컨셉 영상 제작</li>
+</ul>`
+  },
+  {
+    title: "내부 AI 제작 환경 구축",
+    body: `<p>제작사 내부 AI 환경 구축 구성</p>
+<ul>
+  <li>AI 이미지 생성</li>
+  <li>AI 캐릭터 디자인</li>
+  <li>AI 스토리보드 생성</li>
+  <li>AI 영상 프로토타입</li>
+</ul>
+<p>빠른 실험 가능</p>`
+  },
+  {
+    title: "기술 역량",
+    body: `<p>현재 구축 및 실험 중</p>
+<ul>
+  <li>Linux 기반 AI 환경</li>
+  <li>GPU 기반 생성 시스템</li>
+  <li>LLM 기반 자동화</li>
+  <li>AI 이미지 / 영상 생성</li>
+</ul>`
+  },
+  {
+    title: "향후 연구 방향",
+    body: `<p>AI 기반 콘텐츠 제작 파이프라인</p>
+<ul>
+  <li>AI 캐릭터 IP 제작</li>
+  <li>AI 영상 제작</li>
+  <li>AI 콘텐츠 제작 자동화</li>
+  <li>글로벌 콘텐츠 제작</li>
+</ul>`
+  },
+  {
+    title: "기대 효과 & Conclusion",
+    body: `<ul>
+  <li>Pre-production 시간 단축</li>
+  <li>아이디어 테스트 가능</li>
+  <li>콘텐츠 제작 비용 감소</li>
+</ul>
+<p>AI는 영화 제작을 대체하지 않습니다</p>
+<p><strong>AI는 콘텐츠 제작 속도를 높이는 도구입니다</strong></p>`
+  }
+];
+
+function showPage(pageIndex) {
+  const data = pageData[pageIndex];
+  if (!data) return;
+  const box = document.getElementById("pageContentBox");
+  box.innerHTML = `<h1>${data.title}</h1>${data.body}<div class="page-counter">${pageIndex + 1} / ${pageData.length}</div>`;
+  // Re-trigger animation
+  box.style.animation = "none";
+  box.offsetHeight;
+  box.style.animation = "";
+}
+
 colorButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     const scheme = parseInt(btn.dataset.scheme);
+    const page = parseInt(btn.dataset.page) - 1;
+
     app.setColorScheme(scheme);
 
-    // Update active state
     colorButtons.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
 
-    // Update color pickers when scheme changes
-    updateColorPickersFromScheme();
+    showPage(page);
   });
 });
 
-// Color Adjuster Panel Functions
-const colorAdjusterPanel = document.getElementById("colorAdjusterPanel");
-const toggleAdjusterBtn = document.getElementById("toggleAdjusterBtn");
-const closeAdjusterBtn = document.getElementById("closeAdjusterBtn");
-
-// Toggle panel
-toggleAdjusterBtn.addEventListener("click", () => {
-  colorAdjusterPanel.classList.toggle("open");
-  if (colorAdjusterPanel.classList.contains("open")) {
-    updateColorPickersFromScheme();
-    toggleAdjusterBtn.style.display = "none";
-  } else {
-    toggleAdjusterBtn.style.display = "block";
-  }
-});
-
-closeAdjusterBtn.addEventListener("click", () => {
-  colorAdjusterPanel.classList.remove("open");
-  toggleAdjusterBtn.style.display = "block";
-});
-
-// Convert RGB (0-1) to Hex
-function rgbToHex(r, g, b) {
-  const toHex = (n) => {
-    const hex = Math.round(n * 255).toString(16);
-    return hex.length === 1 ? "0" + hex : hex;
-  };
-  return "#" + toHex(r) + toHex(g) + toHex(b);
-}
-
-// Convert Hex to RGB (0-1)
-function hexToRgb(hex) {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result
-    ? {
-        r: parseInt(result[1], 16) / 255,
-        g: parseInt(result[2], 16) / 255,
-        b: parseInt(result[3], 16) / 255
-      }
-    : null;
-}
-
-// Update color pickers from current scheme
-function updateColorPickersFromScheme() {
-  const uniforms = app.gradientBackground.uniforms;
-  const colors = [
-    uniforms.uColor1.value,
-    uniforms.uColor2.value,
-    uniforms.uColor3.value,
-    uniforms.uColor4.value,
-    uniforms.uColor5.value,
-    uniforms.uColor6.value
-  ];
-
-  colors.forEach((color, index) => {
-    const picker = document.getElementById(`colorPicker${index + 1}`);
-    const display = document.getElementById(`colorValue${index + 1}`);
-    const hex = rgbToHex(color.x, color.y, color.z);
-    picker.value = hex;
-    display.value = hex.toUpperCase();
-  });
-}
-
-// Update gradient when color picker changes
-for (let i = 1; i <= 6; i++) {
-  const picker = document.getElementById(`colorPicker${i}`);
-  const display = document.getElementById(`colorValue${i}`);
-
-  picker.addEventListener("input", (e) => {
-    const hex = e.target.value;
-    const rgb = hexToRgb(hex);
-
-    if (rgb) {
-      const uniforms = app.gradientBackground.uniforms;
-      const colorUniform = uniforms[`uColor${i}`];
-
-      if (colorUniform) {
-        colorUniform.value.set(rgb.r, rgb.g, rgb.b);
-        display.value = hex.toUpperCase();
-      }
-    }
-  });
-}
-
-// Copy color value
-document.querySelectorAll(".copy-btn").forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    const colorIndex = e.target.dataset.copy;
-    const display = document.getElementById(`colorValue${colorIndex}`);
-    const text = display.value;
-
-    navigator.clipboard.writeText(text).then(() => {
-      e.target.textContent = "Copied!";
-      e.target.classList.add("copied");
-      setTimeout(() => {
-        e.target.textContent = "Copy";
-        e.target.classList.remove("copied");
-      }, 2000);
-    });
-  });
-});
-
-// Export all colors
-const exportAllBtn = document.getElementById("exportAllBtn");
-exportAllBtn.addEventListener("click", () => {
-  const colors = [];
-  for (let i = 1; i <= 6; i++) {
-    const display = document.getElementById(`colorValue${i}`);
-    colors.push(display.value);
-  }
-
-  const exportText = `Color Scheme:\n${colors
-    .map((c, i) => `Color ${i + 1}: ${c}`)
-    .join("\n")}\n\nHex Array: [${colors.map((c) => `"${c}"`).join(", ")}]`;
-
-  navigator.clipboard.writeText(exportText).then(() => {
-    exportAllBtn.textContent = "Copied!";
-    exportAllBtn.style.background = "rgba(76, 175, 80, 0.3)";
-    exportAllBtn.style.borderColor = "rgba(76, 175, 80, 0.5)";
-    setTimeout(() => {
-      exportAllBtn.textContent = "Export All Colors";
-      exportAllBtn.style.background = "";
-      exportAllBtn.style.borderColor = "";
-    }, 2000);
-  });
-});
+// Show page 1 on load
+showPage(0);
 
 // Custom cursor
 const cursor = document.getElementById("customCursor");
@@ -853,31 +870,20 @@ document.addEventListener("mousemove", (e) => {
 let isCursorAnimating = false;
 function animateCursor() {
   if (!isCursorAnimating) return;
-  // Instant following - no delay
   cursorX = mouseX;
   cursorY = mouseY;
-
   cursor.style.left = cursorX + "px";
   cursor.style.top = cursorY + "px";
-
   requestAnimationFrame(animateCursor);
 }
 
-// Only start animation when mouse moves
-document.addEventListener(
-  "mousemove",
-  () => {
-    if (!isCursorAnimating) {
-      isCursorAnimating = true;
-      animateCursor();
-    }
-  },
-  { once: false }
-);
+document.addEventListener("mousemove", () => {
+  if (!isCursorAnimating) {
+    isCursorAnimating = true;
+    animateCursor();
+  }
+}, { once: false });
 
-// Cursor animation starts on first mouse move
-
-// Make cursor larger on hover over interactive elements
 const footerLink = document.querySelector(".footer a");
 footerLink.addEventListener("mouseenter", () => {
   cursor.style.width = "50px";
@@ -890,7 +896,6 @@ footerLink.addEventListener("mouseleave", () => {
   cursor.style.borderWidth = "2px";
 });
 
-// Make cursor larger on hover over color buttons
 colorButtons.forEach((btn) => {
   btn.addEventListener("mouseenter", () => {
     cursor.style.width = "50px";
@@ -904,19 +909,6 @@ colorButtons.forEach((btn) => {
   });
 });
 
-// Make cursor larger on hover over toggle adjuster button
-toggleAdjusterBtn.addEventListener("mouseenter", () => {
-  cursor.style.width = "50px";
-  cursor.style.height = "50px";
-  cursor.style.borderWidth = "3px";
-});
-toggleAdjusterBtn.addEventListener("mouseleave", () => {
-  cursor.style.width = "40px";
-  cursor.style.height = "40px";
-  cursor.style.borderWidth = "2px";
-});
-
-// Optimized pulse effect - use requestAnimationFrame instead of setTimeout
 let lastMouseMoveTime = 0;
 let pulseFrame = null;
 function checkPulse() {
