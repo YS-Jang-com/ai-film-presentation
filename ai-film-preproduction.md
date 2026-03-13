@@ -5,15 +5,15 @@ marp: true
 # AI 기반 콘텐츠 제작 혁신 제안
 ### AI Film Pre-production Automation
 
-AI Character Generation  
-AI Storyboard Generation  
-AI Video Prototype
+- AI Character Generation  
+- AI Storyboard Generation  
+- AI Video Prototype
 
 ---
 
-# 콘텐츠 산업의 변화
+# 컨텐츠 산업의 변화
 
-콘텐츠 제작 방식이 빠르게 변화하고 있습니다
+### 컨텐츠 제작 방식이 빠르게 변화하고 있습니다
 
 최근 변화
 
@@ -22,7 +22,7 @@ AI Video Prototype
 - AI 음성 생성
 - AI 캐릭터 디자인
 
-AI는 콘텐츠 제작의 새로운 도구가 되고 있습니다
+### AI는 콘텐츠 제작의 새로운 도구가 되고 있습니다
 
 ---
 
@@ -42,7 +42,7 @@ Pre-visualization
 ↓  
 Production
 
-특히 **Pre-production 단계가 오래 걸립니다**
+특히 **Pre-production 단계, 시간과 비용을 절약할 수 있습니다.**
 
 ---
 
@@ -53,12 +53,10 @@ Production
 - 캐릭터 디자인 제작 시간
 - 스토리보드 제작 비용
 - 컨셉 영상 제작 비용
-- 아이디어 테스트 어려움
+- 아이디어 신속 테스트 어려움
 
-예
-
-캐릭터 디자인 → 수주  
-스토리보드 → 수주
+### 캐릭터 디자인 → 수주  
+### 스토리보드 → 수주
 
 ---
 
@@ -74,7 +72,7 @@ Storyboard Generation
 ↓  
 Video Prototype
 
-가능
+**저렴한 비용, 빠른 프로토타입이 가능합니다.
 
 ---
 
@@ -103,7 +101,7 @@ Scene 분석
 ↓  
 Storyboard 생성
 
-감독 아이디어를 빠르게 시각화
+**감독 아이디어를 빠르게 시각화
 
 ---
 
@@ -170,19 +168,20 @@ AI는 제작사를 대체하는 것이 아니라
 - GPU 기반 생성 시스템
 - LLM 기반 자동화
 - AI 이미지 / 영상 생성
+- Vibe Coding
 
 ---
 
 # 향후 연구 방향
 
-AI 기반 콘텐츠 제작 파이프라인
+AI 기반 텐츠 제작 파이프라인
 
-가능한 방향
 
 - AI 캐릭터 IP 제작
 - AI 영상 제작
 - AI 콘텐츠 제작 자동화
 - 글로벌 콘텐츠 제작
+- Vibe Coding
 
 ---
 
@@ -191,8 +190,8 @@ AI 기반 콘텐츠 제작 파이프라인
 AI 활용 시
 
 - Pre-production 시간 단축
-- 아이디어 테스트 가능
-- 콘텐츠 제작 비용 감소
+- 컨텐츠 제작 비용 감소
+- 아이디어 신속/저렴한 테스트 가능
 
 ---
 
