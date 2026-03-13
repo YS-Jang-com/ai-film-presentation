@@ -9,8 +9,6 @@ AI Character Generation
 AI Storyboard Generation  
 AI Video Prototype
 
-장윤석
-
 ---
 
 # 콘텐츠 산업의 변화
