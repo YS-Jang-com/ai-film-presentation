@@ -758,6 +758,9 @@ function parseMarpMd(mdText) {
   return pages;
 }
 
+// ── Custom cursor ──
+const cursor = document.getElementById("customCursor");
+
 // ── Page state ──
 let pageData = [];
 
@@ -802,8 +805,8 @@ function buildButtons(count) {
       btn.classList.add("active");
       showPage(i - 1);
     });
-    btn.addEventListener("mouseenter", () => { cursor.style.width = "52px"; cursor.style.height = "52px"; });
-    btn.addEventListener("mouseleave", () => { cursor.style.width = "40px"; cursor.style.height = "40px"; });
+    btn.addEventListener("mouseenter", () => { if (cursor) cursor.style.width = "52px"; cursor.style.height = "52px"; });
+    btn.addEventListener("mouseleave", () => { if (cursor) cursor.style.width = "40px"; cursor.style.height = "40px"; });
     container.appendChild(btn);
   }
 }
@@ -834,8 +837,7 @@ fetch('./ai-film-preproduction.txt')
     box.innerHTML = `<h1>로딩 오류</h1><p>MD 파일을 불러오지 못했습니다.<br><code>${err.message}</code></p>`;
   });
 
-// ── Custom cursor ──
-const cursor = document.getElementById("customCursor");
+// ── Cursor animation ──
 let mouseX = 0, mouseY = 0;
 let isCursorAnimating = false;
 
