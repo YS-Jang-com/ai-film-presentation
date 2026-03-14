@@ -794,7 +794,7 @@ function buildButtons(count) {
     btn.className = "color-btn";
     btn.dataset.scheme = scheme;
     btn.dataset.page = i;
-    btn.textContent = `Page ${i}`;
+    btn.textContent = `${i}`;
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
       app.setColorScheme(parseInt(btn.dataset.scheme));
@@ -818,7 +818,7 @@ document.addEventListener("click", (e) => {
 });
 
 // ── Load MD and initialize pages ──
-fetch('./ai-film-preproduction.txt')
+fetch('./ai-film-preproduction.md')
   .then(res => {
     if (!res.ok) throw new Error('MD load failed: ' + res.status);
     return res.text();
