@@ -800,7 +800,7 @@ function buildButtons(count) {
 }
 
 // ── Load MD and initialize pages ──
-fetch('./ai-film-preproduction.md')
+fetch('./ai-film-preproduction.txt')
   .then(res => {
     if (!res.ok) throw new Error('MD load failed: ' + res.status);
     return res.text();
