@@ -189,6 +189,91 @@ body {
   opacity: 0.6;
 }
 
+/* ── Mobile Responsive ── */
+@media (max-width: 768px) {
+  .color-controls {
+    top: 0.75rem;
+    gap: 0.35rem;
+    width: 96%;
+  }
+
+  .color-btn {
+    height: 32px;
+    padding: 0 0.7rem;
+    font-size: 0.62rem;
+  }
+
+  .page-content-overlay {
+    top: 52%;
+    width: 92%;
+  }
+
+  .page-content-box {
+    padding: 1.4rem 1.6rem;
+    border-radius: 14px;
+  }
+
+  .page-content-box h1 {
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+    margin: 0 0 0.8rem;
+  }
+
+  .page-content-box p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .page-content-box li {
+    font-size: 0.85rem;
+    line-height: 1.8;
+  }
+
+  .flow-arrow {
+    font-size: 0.8rem;
+    line-height: 1.9;
+  }
+
+  .tag-badge {
+    font-size: 0.65rem;
+    padding: 3px 10px;
+  }
+
+  .footer {
+    bottom: 1.2rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .color-controls {
+    gap: 0.28rem;
+  }
+
+  .color-btn {
+    height: 28px;
+    padding: 0 0.55rem;
+    font-size: 0.58rem;
+  }
+
+  .page-content-overlay {
+    top: 54%;
+    width: 94%;
+  }
+
+  .page-content-box {
+    padding: 1.1rem 1.3rem;
+  }
+
+  .page-content-box h1 {
+    font-size: clamp(1rem, 5vw, 1.3rem);
+  }
+
+  .page-content-box p,
+  .page-content-box li {
+    font-size: 0.8rem;
+  }
+}
+
 /* ── Custom Cursor ── */
 .custom-cursor {
   position: fixed;
@@ -216,3 +301,8 @@ body {
   border-radius: 50%;
 }
 
+@media (hover: none) and (pointer: coarse) {
+  body { cursor: auto; }
+  .custom-cursor { display: none; }
+  .color-btn { cursor: pointer; }
+}
