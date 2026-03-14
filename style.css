@@ -19,6 +19,60 @@ body {
   z-index: 1;
 }
 
+/* ── Title Screen ── */
+.title-screen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+  text-align: center;
+  pointer-events: none;
+  animation: fadeInPage 0.5s ease;
+}
+
+.title-main {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.3);
+}
+
+.title-sub {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(0.85rem, 1.8vw, 1.15rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.title-hint {
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.06em;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.7; }
+}
+
+.title-screen.hidden {
+  display: none;
+}
+
+.page-content-overlay.hidden {
+  display: none;
+}
+
 /* ── Page Buttons ── */
 .color-controls {
   position: fixed;
@@ -201,6 +255,14 @@ body {
     height: 32px;
     padding: 0 0.7rem;
     font-size: 0.62rem;
+  }
+
+  .title-main {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+
+  .title-sub {
+    font-size: clamp(0.7rem, 2.5vw, 0.9rem);
   }
 
   .page-content-overlay {

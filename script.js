@@ -761,14 +761,23 @@ function parseMarpMd(mdText) {
 // ── Page state ──
 let pageData = [];
 
+// ── Show title screen ──
+function showTitle() {
+  document.getElementById("titleScreen").classList.remove("hidden");
+  document.getElementById("pageOverlay").classList.add("hidden");
+  document.querySelectorAll(".color-btn").forEach(b => b.classList.remove("active"));
+}
+
 // ── Show page content ──
 function showPage(index) {
   const data = pageData[index];
   if (!data) return;
+  document.getElementById("titleScreen").classList.add("hidden");
+  document.getElementById("pageOverlay").classList.remove("hidden");
   const box = document.getElementById("pageContentBox");
   box.innerHTML = `<h1>${data.title}</h1>${data.body}<div class="page-counter">${index + 1} / ${pageData.length}</div>`;
   box.style.animation = "none";
-  box.offsetHeight; // reflow
+  box.offsetHeight;
   box.style.animation = "";
 }
 
@@ -782,25 +791,34 @@ function buildButtons(count) {
   for (let i = 1; i <= count; i++) {
     const scheme = SCHEMES[(i - 1) % SCHEMES.length];
     const btn = document.createElement("button");
-    btn.className = "color-btn" + (i === 1 ? " active" : "");
+    btn.className = "color-btn";
     btn.dataset.scheme = scheme;
     btn.dataset.page = i;
     btn.textContent = `Page ${i}`;
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
       app.setColorScheme(parseInt(btn.dataset.scheme));
       document.querySelectorAll(".color-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       showPage(i - 1);
     });
-    // Cursor effects
     btn.addEventListener("mouseenter", () => { cursor.style.width = "52px"; cursor.style.height = "52px"; });
     btn.addEventListener("mouseleave", () => { cursor.style.width = "40px"; cursor.style.height = "40px"; });
     container.appendChild(btn);
   }
 }
 
+// ── Click outside → back to title ──
+document.addEventListener("click", (e) => {
+  const isBtn = e.target.closest(".color-btn");
+  const isFooter = e.target.closest(".footer");
+  if (!isBtn && !isFooter) {
+    showTitle();
+  }
+});
+
 // ── Load MD and initialize pages ──
-fetch('./ai-film-preproduction.txt')
+fetch('./ai-film-preproduction.md')
   .then(res => {
     if (!res.ok) throw new Error('MD load failed: ' + res.status);
     return res.text();
@@ -808,7 +826,7 @@ fetch('./ai-film-preproduction.txt')
   .then(mdText => {
     pageData = parseMarpMd(mdText);
     buildButtons(pageData.length);
-    showPage(0);
+    showTitle();
   })
   .catch(err => {
     console.error('Failed to load MD file:', err);
