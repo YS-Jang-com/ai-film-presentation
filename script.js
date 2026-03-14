@@ -696,116 +696,70 @@ if (document.readyState === "loading") {
 }
 
 
-// ── Page Data (14 pages from ai-film-preproduction.md) ──
-const pageData = [
-  {
-    title: "AI 기반 콘텐츠 제작 혁신 제안",
-    body: `<div class="tag-badge">AI Film Pre-production Automation</div>
-<p>AI Character Generation &nbsp;·&nbsp; AI Storyboard Generation &nbsp;·&nbsp; AI Video Prototype</p>
-<p class="author-line">장윤석</p>`
-  },
-  {
-    title: "콘텐츠 산업의 변화",
-    body: `<p>콘텐츠 제작 방식이 빠르게 변화하고 있습니다</p>
-<ul>
-  <li>AI 이미지 생성</li><li>AI 영상 생성</li><li>AI 음성 생성</li><li>AI 캐릭터 디자인</li>
-</ul>
-<p>AI는 콘텐츠 제작의 새로운 도구가 되고 있습니다</p>`
-  },
-  {
-    title: "영화 제작 Pipeline",
-    body: `<p>전통적인 제작 과정</p>
-<div class="flow-arrow">Idea → Script → Character Design → Storyboard → Pre-visualization → Production</div>
-<p>특히 <strong>Pre-production 단계가 오래 걸립니다</strong></p>`
-  },
-  {
-    title: "Pre-production의 문제",
-    body: `<ul>
-  <li>캐릭터 디자인 제작 시간</li><li>스토리보드 제작 비용</li>
-  <li>컨셉 영상 제작 비용</li><li>아이디어 테스트 어려움</li>
-</ul>
-<p>캐릭터 디자인 → 수주 &nbsp;|&nbsp; 스토리보드 → 수주</p>`
-  },
-  {
-    title: "AI 기반 해결 방법",
-    body: `<p>AI를 활용하면</p>
-<div class="flow-arrow">Script → Character Generation → Storyboard Generation → Video Prototype</div>
-<p>빠른 프로토타입이 가능합니다</p>`
-  },
-  {
-    title: "AI Character Generation",
-    body: `<p>AI 기반 캐릭터 생성 예시</p>
-<ul>
-  <li>Zombie Deer</li><li>Zombie Pig Farmer</li>
-  <li>Burned Zombie Cow</li><li>Zombie Rat</li>
-</ul>
-<p>AI를 이용한 캐릭터 디자인 자동 생성</p>`
-  },
-  {
-    title: "AI Storyboard Generation",
-    body: `<p>시나리오 기반 자동 스토리보드 생성</p>
-<div class="flow-arrow">Script → Scene 분석 → Storyboard 생성</div>
-<p>감독 아이디어를 빠르게 시각화</p>`
-  },
-  {
-    title: "AI Video Prototype",
-    body: `<p>AI 영상 생성 기술 활용</p>
-<ul>
-  <li>Concept trailer</li><li>Scene prototype</li><li>Visual experiment</li>
-</ul>
-<p>Pre-visualization 속도 증가</p>`
-  },
-  {
-    title: "실제 제작 실험",
-    body: `<p>AI 기반 캐릭터 디자인 예시</p>
-<ul>
-  <li>Zombie Animal Characters</li><li>Horror Concept Art</li><li>AI Generated Character Sheets</li>
-</ul>`
-  },
-  {
-    title: "제작사 활용 가능 영역",
-    body: `<p>AI는 제작사를 대체하는 것이 아니라 제작을 보조하는 도구입니다</p>
-<ul>
-  <li>영화 Pre-production</li><li>웹툰 / 웹소설 IP 개발</li>
-  <li>캐릭터 디자인</li><li>컨셉 영상 제작</li>
-</ul>`
-  },
-  {
-    title: "내부 AI 제작 환경 구축",
-    body: `<p>제작사 내부 AI 환경 구축 구성</p>
-<ul>
-  <li>AI 이미지 생성</li><li>AI 캐릭터 디자인</li>
-  <li>AI 스토리보드 생성</li><li>AI 영상 프로토타입</li>
-</ul>
-<p>빠른 실험 가능</p>`
-  },
-  {
-    title: "기술 역량",
-    body: `<p>현재 구축 및 실험 중</p>
-<ul>
-  <li>Linux 기반 AI 환경</li><li>GPU 기반 생성 시스템</li>
-  <li>LLM 기반 자동화</li><li>AI 이미지 / 영상 생성</li>
-</ul>`
-  },
-  {
-    title: "향후 연구 방향",
-    body: `<p>AI 기반 콘텐츠 제작 파이프라인</p>
-<ul>
-  <li>AI 캐릭터 IP 제작</li><li>AI 영상 제작</li>
-  <li>AI 콘텐츠 제작 자동화</li><li>글로벌 콘텐츠 제작</li>
-</ul>`
-  },
-  {
-    title: "기대 효과 & Conclusion",
-    body: `<ul>
-  <li>Pre-production 시간 단축</li>
-  <li>아이디어 테스트 가능</li>
-  <li>콘텐츠 제작 비용 감소</li>
-</ul>
-<p>AI는 영화 제작을 대체하지 않습니다</p>
-<p><strong>AI는 콘텐츠 제작 속도를 높이는 도구입니다</strong></p>`
+// ── MD Parser: converts MARP markdown slides → pageData ──
+function parseMarpMd(mdText) {
+  // Split on MARP slide separators (--- on its own line)
+  const rawSlides = mdText.split(/\n---\n/);
+  const pages = [];
+
+  for (const slide of rawSlides) {
+    const lines = slide.trim().split('\n').filter(l => l.trim() !== '');
+    if (lines.length === 0) continue;
+
+    // Skip YAML front-matter block (marp: true etc.)
+    if (lines[0].trim() === '---') continue;
+
+    let title = '';
+    const bodyLines = [];
+
+    for (const line of lines) {
+      // H1 → slide title
+      if (/^# /.test(line)) {
+        title = line.replace(/^# /, '').trim();
+      }
+      // H2/H3 → sub-heading paragraph
+      else if (/^#{2,3} /.test(line)) {
+        const text = line.replace(/^#{2,4} /, '').trim();
+        bodyLines.push(`<p><strong>${text}</strong></p>`);
+      }
+      // Bullet list items
+      else if (/^- /.test(line)) {
+        bodyLines.push(`__LI__${line.replace(/^- /, '').trim()}`);
+      }
+      // Flow arrows (lines with only ↓ or →)
+      else if (/^[A-Za-z가-힣\u3131-\u318E↓→\s\/]+$/.test(line) && /[↓→]/.test(line)) {
+        bodyLines.push(`<div class="flow-arrow">${line.trim()}</div>`);
+      }
+      // Remaining text → paragraph (handle **bold**)
+      else {
+        const html = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        bodyLines.push(`<p>${html}</p>`);
+      }
+    }
+
+    // Wrap consecutive __LI__ entries in <ul>
+    const body = [];
+    let inList = false;
+    for (const item of bodyLines) {
+      if (item.startsWith('__LI__')) {
+        if (!inList) { body.push('<ul>'); inList = true; }
+        body.push(`<li>${item.slice(6)}</li>`);
+      } else {
+        if (inList) { body.push('</ul>'); inList = false; }
+        body.push(item);
+      }
+    }
+    if (inList) body.push('</ul>');
+
+    if (title) {
+      pages.push({ title, body: body.join('\n') });
+    }
   }
-];
+  return pages;
+}
+
+// ── Page state ──
+let pageData = [];
 
 // ── Show page content ──
 function showPage(index) {
@@ -818,25 +772,49 @@ function showPage(index) {
   box.style.animation = "";
 }
 
-// ── Button click handlers ──
-const colorButtons = document.querySelectorAll(".color-btn");
+// ── Color scheme cycle (1~5) ──
+const SCHEMES = [1, 2, 3, 4, 5];
 
-colorButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const scheme = parseInt(btn.dataset.scheme);
-    const pageIndex = parseInt(btn.dataset.page) - 1;
+// ── Build buttons dynamically ──
+function buildButtons(count) {
+  const container = document.getElementById("colorControls");
+  container.innerHTML = '';
+  for (let i = 1; i <= count; i++) {
+    const scheme = SCHEMES[(i - 1) % SCHEMES.length];
+    const btn = document.createElement("button");
+    btn.className = "color-btn" + (i === 1 ? " active" : "");
+    btn.dataset.scheme = scheme;
+    btn.dataset.page = i;
+    btn.textContent = `Page ${i}`;
+    btn.addEventListener("click", () => {
+      app.setColorScheme(parseInt(btn.dataset.scheme));
+      document.querySelectorAll(".color-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      showPage(i - 1);
+    });
+    // Cursor effects
+    btn.addEventListener("mouseenter", () => { cursor.style.width = "52px"; cursor.style.height = "52px"; });
+    btn.addEventListener("mouseleave", () => { cursor.style.width = "40px"; cursor.style.height = "40px"; });
+    container.appendChild(btn);
+  }
+}
 
-    app.setColorScheme(scheme);
-
-    colorButtons.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-
-    showPage(pageIndex);
+// ── Load MD and initialize pages ──
+fetch('./ai-film-preproduction.md')
+  .then(res => {
+    if (!res.ok) throw new Error('MD load failed: ' + res.status);
+    return res.text();
+  })
+  .then(mdText => {
+    pageData = parseMarpMd(mdText);
+    buildButtons(pageData.length);
+    showPage(0);
+  })
+  .catch(err => {
+    console.error('Failed to load MD file:', err);
+    const box = document.getElementById("pageContentBox");
+    box.innerHTML = `<h1>로딩 오류</h1><p>MD 파일을 불러오지 못했습니다.<br><code>${err.message}</code></p>`;
   });
-});
-
-// Show Page 1 on load
-showPage(0);
 
 // ── Custom cursor ──
 const cursor = document.getElementById("customCursor");
@@ -865,7 +843,4 @@ const footerLink = document.querySelector(".footer a");
 footerLink.addEventListener("mouseenter", () => { cursor.style.width = "52px"; cursor.style.height = "52px"; });
 footerLink.addEventListener("mouseleave", () => { cursor.style.width = "40px"; cursor.style.height = "40px"; });
 
-colorButtons.forEach((btn) => {
-  btn.addEventListener("mouseenter", () => { cursor.style.width = "52px"; cursor.style.height = "52px"; });
-  btn.addEventListener("mouseleave", () => { cursor.style.width = "40px"; cursor.style.height = "40px"; });
-});
+
